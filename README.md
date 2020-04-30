@@ -7,3 +7,6 @@ Installation steps :
 2 -> create database with mongodb by typing [ use hotel ]
 
 3 -> Fake Data to using application by typing [ node ./seeder/seeder.js ]
+
+Mvc concept :
+
