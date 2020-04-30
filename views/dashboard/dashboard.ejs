@@ -1,0 +1,92 @@
+<%- include('../base/header') -%>
+<%- include('../base/navbar') -%>
+<div class="container pr-5 pl-5">
+
+    <div class="row mt-4">
+
+        <div class="col-sm-5 mr-4 p-3" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);">
+            <div class="card mb-3" style="max-width: 540px;border: none;">
+                <div class="row no-gutters">
+                  <div class="col-md-4">
+                    <img src="/sys/hotel.png" class="card-img w-75 h-75" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Hotel</h5>
+                      <button type="button" class="btn btn-secondary btn-sm">
+                          Number of hotel <span class="badge badge-light"><% if(hotelTotal != "") { %>  <%= hotelTotal %> <% } else { %> 0 <% } %></span>
+                     </button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 mr-2 p-3" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);">
+            <div class="card mb-3" style="max-width: 540px;border: none;">
+                <div class="row no-gutters">
+                  <div class="col-md-4">
+                    <img src="/sys/customer.png" class="card-img w-75 h-75" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Customers</h5>
+                      <button type="button" class="btn btn-secondary btn-sm">
+                          Number of Customers <span class="badge badge-light"><% if(customerTotal != "") { %>  <%= customerTotal %> <% } else { %> 0 <% } %></span>
+                     </button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="row mt-4">
+
+        <div class="col-sm-5 mr-4 p-3" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);">
+            <div class="card mb-3" style="max-width: 540px;border: none;">
+                <div class="row no-gutters">
+                  <div class="col-md-4">
+                    <img src="/sys/bed.png" class="card-img w-75 h-75" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Room</h5>
+                      <button type="button" class="btn btn-secondary btn-sm">
+                          Number of Room <span class="badge badge-light"><% if(roomTotal != "") { %>  <%= roomTotal %> <% } else { %> 0 <% } %></span>
+                     </button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 mr-4 p-3" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);">
+            <div class="card mb-3" style="max-width: 540px;border: none;">
+                <div class="row no-gutters">
+                  <div class="col-md-4">
+                    <img src="/sys/booking.png" class="card-img w-75 h-75" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Reservation</h5>
+                      <button type="button" class="btn btn-secondary btn-sm">
+                          Number of reservation <span class="badge badge-light"><% if(reservationTotal != "") { %>  <%= reservationTotal %> <% } else { %> 0 <% } %></span>
+                     </button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+      </div>
+        
+    </div>
+
+</div>
+
+</div>
+</div>
+</div>
+<%- include('../base/footer') -%>

@@ -1,0 +1,104 @@
+<%- include('../base/header') -%>
+<%- include('../base/navbar') -%>
+<div class="container pr-5 pl-5">
+
+<%- include('../base/messages') -%>
+        
+            <div class="row mb-4">
+                    <div class="col-md-12" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);">
+                            <nav class="navbar navbar-expand-lg navbar-light">
+                                    <ol class="navbar-nav">
+                                        <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+                                        <li class="breadcrumb-item"><a href="/room/all">Rooms</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Edit</li>
+                                    </ol>
+                                    <div class="collapse navbar-collapse" id="navbarNav">
+                                      <ul class="navbar-nav ml-auto">
+                                            <li class="nav-item">
+                                              <a class="nav-link btn btn-primary btn-sm mr-2 text-light" href="/room/new">New</a>
+                                            </li>
+                                            <li class="nav-item">
+                                              <a class="nav-link btn btn-primary btn-sm mr-2 text-light" href="/room/all">All</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                              </nav>
+                        </div>
+                </div>
+        
+    <div class="row mb-4">
+        <div class="col-md-12 p-4" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);">
+            <form  action="/room/update" method="post">
+              <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="hotel">hotel</label>
+                    <select  name="hotel" id="inputcity" class="form-control">
+                        <% hotel.forEach((hotel)=> {%>
+                            <% if(hotel._id == room.NumH) {%>
+                            <option value="<%= hotel._id %>" selected><%= hotel.NomH %></option>
+                            <% } else { %>
+                            <option value="<%= hotel._id %>"><%= hotel.NomH %></option>
+                            <% } %>
+                        <% }) %> 
+                    </select>                
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="numberplace">Number place</label>
+                    <select  name="numberplace" id="inputcity" class="form-control">
+                        <% number_place.forEach((number_place)=> {%>
+                            <% if(number_place == room.NumberPlace) {%>
+                            <option value="<%= number_place %>" selected><%= number_place %></option>
+                            <% } else { %>
+                            <option value="<%= number_place %>"><%= number_place %></option>
+                            <% } %>
+                        <% }) %> 
+                    </select>                
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="CatCh">Category</label>
+                    <select  name="CatCh" id="inputcity" class="form-control">
+                        <% if(room.CatCh == 'family') {%>
+                        <option value="family" selected>Family</option>
+                        <option value="lovers">Lovers</option>
+                        <option value="Alone">Alone</option>
+                        <% } else if(room.CatCh == 'lovers') { %>
+                        <option value="family">Family</option>
+                        <option value="lovers" selected>Lovers</option>
+                        <option value="Alone">Alone</option>
+                        <% } else if(room.CatCh == 'Alone') { %>
+                        <option value="family">Family</option>
+                        <option value="lovers">Lovers</option>
+                        <option value="Alone" selected>Alone</option>
+                        <% } %>
+                    </select>    
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="disponible">Disponible</label>
+                    <select  name="disponible" id="inputcity" class="form-control">
+                        <% if(room.Disponible == 'yes') {%>
+                        <option value="yes" selected>Disponible</option>
+                        <option value="no">unDisponible</option>
+                        <% } else {%>
+                        <option value="yes">Disponible</option>
+                        <option value="no" selected>unDisponible</option>
+                        <% } %>
+                    </select>
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="description">Description</label>
+                    <textarea class="form-control" name="description" id="description" rows="3"><%= room.Description%></textarea>
+                </div>
+                <input type="hidden" name="id" value="<%=room.id%>">
+                <div class="form-group col-md-12">
+                    <button type="submit" class="btn btn-primary"> Update</button>
+                </div>
+              </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</div>
+</div>
+</div>
+<%- include('../base/footer') -%>

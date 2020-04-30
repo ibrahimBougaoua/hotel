@@ -1,0 +1,91 @@
+<%- include('../base/header') -%>
+<%- include('../base/navbar') -%>
+<div class="container pr-5 pl-5">
+  
+<%- include('../base/messages') -%>
+  
+      <div class="row mb-4">
+      <div class="col-md-12" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);">
+      
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <ol class="navbar-nav">
+            <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Hotels</li>
+        </ol>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link btn btn-primary btn-sm mr-2 text-light" href="/hotel/new">New</a>
+                </li>
+            </ul>
+        </div>
+  </nav>
+  </div>
+  </div>
+  
+  <div class="row mb-4">
+  <div class="col-md-12 p-0" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);">
+  
+  <% if(hotel != "") { %>
+  <table class="table">
+    <thead class="thead-light">
+            <tr>
+              <th  style="font-weight: normal;font-size: 14px;">Nom</th>
+              <th  style="font-weight: normal;font-size: 14px;">Category</th>
+              <th  style="font-weight: normal;font-size: 14px;">Address</th>
+              <th  style="font-weight: normal;font-size: 14px;">Telephone</th>
+              <th  style="font-weight: normal;font-size: 14px;">Created</th>
+              <th  style="font-weight: normal;font-size: 14px;">Show More</th>
+            </tr>
+          </thead>
+        <tbody>
+          
+          <% hotel.forEach((hotel)=> {%>
+                  <tr>
+                    <td style="font-weight: normal;font-size: 14px;"><%= hotel.NomH%></td>
+                    <td style="font-weight: normal;font-size: 14px;"><%= hotel.CateH%></td>
+                    <td style="font-weight: normal;font-size: 14px;"><%= hotel.AdrH%></td>
+                    <td style="font-weight: normal;font-size: 14px;"><%= hotel.TelH%></td>
+                    <td style="font-weight: normal;font-size: 14px;"><%= hotel.created_at.toDateString()%></td>
+                    <td style="font-weight: normal;font-size: 14px;"><a href="<%=  '/hotel/single/'  + hotel.id %>" class="btn btn-primary btn-sm">Show More</a></td>
+                  </tr>
+          <%})%>
+        
+        </tbody>
+        </table>
+
+        <%} else {%>
+          <div class="mt-3 text-center">
+            <p class="display-5 text-center">
+              No Hotel ! please Add <a class="text-muted" href="/hotel/new"> New</a>
+            </p>
+          </div>
+        <% } %>
+
+        </div>
+        </div>
+
+        <% if(hotel != "") { %>
+        <div class="row">
+          <div class="col-12 mt-2 mb-2">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                  <% for(let i = 1;i<=Math.ceil(total/5);i++) {%>
+                    <% if( i == page) {%>
+                    <li class="page-item active"><a class="page-link" href="/hotel/all/<%= i %>"><%= i %></a></li>
+                    <%} else {%>
+                    <li class="page-item"><a class="page-link" href="/hotel/all/<%= i %>"><%= i %></a></li>
+                    <%}%>
+                  <%}%>
+                </ul>
+              </nav>
+          </div>
+        </div>
+        <% } %>
+        
+        </div>
+        
+      </div>
+    </div>
+    </div>
+<%- include('../base/footer') -%>

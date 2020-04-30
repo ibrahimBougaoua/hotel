@@ -1,0 +1,69 @@
+<% if (user) { %>
+      <div class="container-fluid" style="padding-left: 0px;margin-right: auto;margin-left: auto;">
+        <div class="row">
+          <div class="col-2" style="box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);height: 48em;">
+      
+      <nav class="navbar navbar-expand-lg navbar-light flex-column">
+        <a class="navbar-brand" href="#" style="font-size: 28px;margin: 20px;border-bottom: 1px solid #0d174840;"><i class="fas fa-database"></i> Bar Houch</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav nav flex-column" style="margin-left: -28px;">
+            <% if(user.isAdmin()){ %>
+            <li class="nav-item active">
+              <a class="nav-link" href="/dashboard"><img src="/sys/dashboard.png" class="menu-icons mr-2" alt="...">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/users/all"><img src="/sys/user.png" class="menu-icons mr-2" alt="...">Users</a>
+            </li>
+            <% } %>
+            <li class="nav-item">
+              <a class="nav-link" href="/customer/all"><img src="/sys/customer.png" class="menu-icons mr-2" alt="...">Customers</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/hotel/all"><img src="/sys/hotel.png" class="menu-icons mr-2" alt="...">Hotels</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/room/all"><img src="/sys/bed.png" class="menu-icons mr-2" alt="...">Rooms</a>
+            </li>  
+            <li class="nav-item">
+              <a class="nav-link" href="/reservation/all"><img src="/sys/booking.png" class="menu-icons mr-2" alt="...">Reservations</a>
+            </li>    
+          </ul>
+        </div>
+      </nav>
+      
+          </div>
+      
+          <div class="col-10" style="margin: 0px;padding: 0px;">
+      
+      <!--Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-light default-color mb-4" style="box-shadow: 0 1px 5px rgb(233, 236, 239);">
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/"><img src="/sys/home.png" class="menu-icons mr-2" alt="...">Home <span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav ml-auto nav-flex-icons" style="margin-right: 15px;">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="<%= '/img/' + user.avatar %>" class="rounded-circle" style="width: 32px;height: 30px;" alt="...">
+                Profile
+              </a>
+              <div class="dropdown-menu dropdown-menu-right dropdown-default"
+                aria-labelledby="navbarDropdownMenuLink-333">
+                <a class="dropdown-item" href="/users/profile">Profile</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/users/logout">Logout</a>
+              </div>
+            </li>
+          </ul>
+
+        </div>
+      </nav>
+      <!--/.Navbar -->
+<% }  %>
